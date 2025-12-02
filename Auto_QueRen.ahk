@@ -1,6 +1,10 @@
 #Requires AutoHotkey v2.0
 #Include <FindText>
 
+;按下CTRL+下按键，鼠标滚轮向下滚动
+;按下CTRL+上按键，鼠标滚轮向上滚动
+;^F10::Send "{WheelDown}"
+;^F11::Send "{WheelUp}"
 
 ;==========================
 ; 退出热键 Ctrl+End
@@ -26,7 +30,15 @@ TargetText_QueRen.="|<>**50$37.000060Tzy07U801VTzo00k622TzM33100AE03U06000Hzn201
 
 TargetText_TaskList:="|<>*149$36.y0k0Tzy0W0Tzy0W0Tzzz40Tzs040zzUk40zzXy41zzW3Y1zzm0w0zzk000Tzt000DzwU007zwk007zyE003zz8001zz8000zzY000Tzm000Dzn0007zt0007zsU027zwU04DzyE0MTzy80Uzzz833zyTY67zzzWMT0U"
 TargetText_TaskList:="|<>**50$28.m000DY000KM000AU000l0041a00V380AA4E13UN0MQ0m33U36ks06C700A0s2"
-TaskListInterval := 10 * 60 * 1000    ; 任务列表检测间隔：10分钟
+;背包按钮，用来判断是否是主界面
+MainPage_BeiBao := "|<>**50$25.0TU00MTw08030Q00UM01k80XU40HU20BU3w3U723nk0T0ClU/sFzsr/VEiz08Pj0Y0S0n0V3kUA00N3U0DUk03k800k4000200010001E001A001XU030S061"
+
+;任务列表中的每日必做
+ Text_MRBZ := "<>**50$79.6003zz01008UU7zzXzzk4kUAME3001U0M3Mk6zDn000k0A1aM3TbvTzsM064nB3268AEAA032MalV3A6C6601VAGNkVa33X300kaBAtwv3UHVzzsn1W4yp7zzwzzwNUVWFmUk0EM06Akkl8lkMkMA036MkMYMs8CA601aAsYGAAA16300n6sG96C7zzlU0M3kN4WBVznsk0A7UA2FiM09UTzyCzw1Di607U7zy03w0U60U"
+
+TaskListInterval := 10 * 1000    ; 任务列表检测间隔：10WheelDown
+
+
 
 ;点击匹配按钮
 TargetText_PP.= "|<>**50$58.0t0D0000002bUw7zzzzU/zyTs0A060U4039jsz8yzk0AqzXgW07yTrOw3m+sTtzRjoj8jxU05qvGVizryTqPgWyM0QdLPUm21s7mZBT7S/qib+Jrjw0fnPStrDzrfjRas0S030UzTzzzzzzzyBr/zw00052"
@@ -50,6 +62,7 @@ Text_DFDJ_MAIN_TITLE:= "<>**50$117.00800006000000k00400U103080sU0000C000k060A0M1
 Text_DFDJ_MAIN_TZ :=   "<>**50$44.410041U10H010NUF4k0E6QCNAs61X7qHA1z81xYq0Q20CND040z12H011zkE4k0sz073A0TUn3knkDwAlswy3338wTAskkq3An6AAD0EAk331k43A0kkMl1X2AADAEskn3CvAQCMzb7r61y010w0020002U"
 
 
+
 ;==========================
 ; GUI 界面配置
 ;==========================
@@ -61,7 +74,7 @@ myGui.SetFont("s10", "Microsoft YaHei")
 cbQueRen := myGui.Add("Checkbox", "Checked", "启用：自动点击确认 (QueRen)")
 cbPP := myGui.Add("Checkbox", "", "启用：自动点击匹配 (PP)")
 cbKSTZ := myGui.Add("Checkbox", "", "启用：自动巅峰对决 (KSTZ)")
-cbTaskList := myGui.Add("Checkbox", "", "启用：自动点击任务列表 (TaskList)")
+cbTaskList := myGui.Add("Checkbox", "", "启用：自动点击任务列表 (TaskList)").OnEvent("Click", (*) => TaskListLoop())
 
 myGui.Add("Button", "w200", "手动排列窗口").OnEvent("Click", (*) => ArrangeWindows())
 
@@ -116,7 +129,7 @@ ClickLoop()
 
     WinList := WinGetList(WinTitle)
     if WinList.Length = 0
-        return  ; 没有找到窗口，跳过
+        return  ; 没有找到窗口，跳过WheelDown
     for hwnd in WinList
     {
         TrySearchAndClick(hwnd)
@@ -147,7 +160,7 @@ TaskListLoop()
 ;==========================
 TrySearchAndClick(hwnd)
 {
-    global TargetText_QueRen, TargetText_KSTZ, SearchRange, cbKSTZ
+    global TargetText_QueRen, TargetText_KSTZ, SearchRange, cbKSTZ, cbQueRen, cbPP, TargetText_PP
     global Text_DFDJ_200, Text_DFDJ_200_OK, Text_DFDJ_TZ
 
     ; 绑定窗口用于截图（模式4最稳定）
@@ -222,10 +235,18 @@ TrySearchAndClick(hwnd)
         }
     }
 
-    if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, TargetText_QueRen, 1, 0.85))
+    if (cbQueRen.Value && FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, TargetText_QueRen, 1, 0.85))
     {
         ; 转为屏幕坐标并点击
         ToolTip "窗口 " hwnd " 已点击按钮 (" X "," Y ")", 20, 20
+        FindText().Click(X, Y, "L")
+        SetTimer(() => ToolTip(), -800)
+    }
+
+    if (cbPP.Value && FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, TargetText_PP, 1, 0.85))
+    {
+        ; 转为屏幕坐标并点击
+        ToolTip "窗口 " hwnd " 已点击匹配 (" X "," Y ")", 20, 20
         FindText().Click(X, Y, "L")
         SetTimer(() => ToolTip(), -800)
     }
@@ -239,10 +260,16 @@ TrySearchAndClick(hwnd)
 ;==========================
 CheckTaskList(hwnd)
 {
-    global TargetText_TaskList, SearchRange
+    global TargetText_TaskList, SearchRange, cbTaskList
+    ;标识是否有任务正在执行中
+    global HasTaskExecuting := false
+
+    if (!cbTaskList.Value)
+        return
 
     ; 绑定窗口用于截图（模式4最稳定）
     FindText().BindWindow(hwnd, 4)
+    WinActivate("ahk_id " hwnd)
 
     ; 搜索范围
     x1 := 0 - SearchRange
@@ -250,18 +277,33 @@ CheckTaskList(hwnd)
     x2 := 0 + SearchRange
     y2 := 0 + SearchRange
     ;连续查找三次，找到停止
-    for i, attempt in [1, 2, 3,4,5,6]
-    {
-        if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, TargetText_TaskList, 1, 0.85))
-        {
-            ; 在窗口坐标内点击任务列表
-            ToolTip("窗口 " hwnd " 任务列表已点击 (" X "," Y ")", 20, 20)
-            FindText().Click(X, Y, "L")
+        ;如果当前有任务在执行，则不进行任务列表检测和点击
+        if(HasTaskExecuting) {
+             ToolTip("窗口 " hwnd "有任务正在执行中", 20, 20)
+            return 
+        }
+           
 
+        if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, MainPage_BeiBao, 1, 0.80))
+        {
+            if ( ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, TargetText_TaskList, 1, 0.85) ) {
+             ; 在窗口坐标内点击任务列表
+                ToolTip("窗口 " hwnd " 任务列表已点击 (" X "," Y ")", 20, 20)
+                FindText().Click(X, Y, "L")
+            }
+
+        }
+        ;判断是否处于任务列表界面
+        if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, Text_MRBZ, 1, 0.85))
+        {
+            ; 在窗口坐标内点击每日必做
+            ToolTip("窗口 " hwnd " 每日必做已点击 (" X "," Y ")", 20, 20)
+            FindText().Click(X, Y, "L")
+            MouseMove X, Y -200  
+            Sleep 100
+            Send "{WheelDown 5}"  ; 向下滚动5格
             Sleep 500
         }
-        sleep 300
-    }
+       
     FindText().BindWindow(0)  ; 解绑定
 }
-
