@@ -28,6 +28,9 @@ ClickInterval := 5000                 ; 每次执行间隔（毫秒）
 TargetText_QueRen.="|<>**50$113.00082000E0000000E00000MA031k0U3zU01U00000kM061U3Xzy3zX00001zzzkM3U1k603y6000010001nzz1UA000C0000000032C600M001zk0003z0AAUQ01zzs00tU000Dz4MH0M1nzznztX0000M6Mk60k3k307zX20000kAlUM1U1k600k640001ztX1lzy0UA010A80003zn67bzw00M06kME00061aAT0Q02TzUBkkU000A3AMq0s0Azz0lVX0000TyMkA0k0P031X760000zwlUM1U0q0663AA0001UNX0k303A0ADyMM00030k61U606M0MTxUk00061UA30Q0Mk0k0D3U000Az7M6zztlzzU0Ry0000MyDkAzzn1zy00ns000000300000000010000000000000000000000E"
 TargetText_QueRen.="|<>**50$37.000060Tzy07U801VTzo00k622TzM33100AE03U06000Hzn2019UNV00Yk4kU0GM2ME09A1AA04a0a0lwHzn0F08ztV8kY00lY8+00NX0r03sVylU"
 
+TargetText_QueRen.="|<>**45$59.syo5k100010xe8k20002QPRMUa001wsqmNzDVk3tkhYM016k4nAOTk02As9kMlsEtw8MHtxjkVW0kQbrvRt1Y0URCVqQG0810ON2AQaEE20ImkO9A0U41dZaqOM9087H/xjws20EMaKnQtk403VCVCtUwTUD2MAQWM002o4XvsDw007EDzyTyS0Q001"
+
+
 TargetText_TaskList:="|<>*149$36.y0k0Tzy0W0Tzy0W0Tzzz40Tzs040zzUk40zzXy41zzW3Y1zzm0w0zzk000Tzt000DzwU007zwk007zyE003zz8001zz8000zzY000Tzm000Dzn0007zt0007zsU027zwU04DzyE0MTzy80Uzzz833zyTY67zzzWMT0U"
 TargetText_TaskList:="|<>**50$28.m000DY000KM000AU000l0041a00V380AA4E13UN0MQ0m33U36ks06C700A0s2"
 ;背包按钮，用来判断是否是主界面
@@ -35,6 +38,15 @@ MainPage_BeiBao := "|<>**50$25.0TU00MTw08030Q00UM01k80XU40HU20BU3w3U723nk0T0ClU/
 
 ;任务列表中的每日必做
  Text_MRBZ := "|<>**50$79.6003zz01008UU7zzXzzk4kUAME3001U0M3Mk6zDn000k0A1aM3TbvTzsM064nB3268AEAA032MalV3A6C6601VAGNkVa33X300kaBAtwv3UHVzzsn1W4yp7zzwzzwNUVWFmUk0EM06Akkl8lkMkMA036MkMYMs8CA601aAsYGAAA16300n6sG96C7zzlU0M3kN4WBVznsk0A7UA2FiM09UTzyCzw1Di607U7zy03w0U60U"
+
+ ;自动报名山谷
+Text_BMSG_Task:="|<>**40$177.08000000000000U0010000000000043U1zzs0A00MA0Dk00M010k0000000kzkDzz01U0C1s1zU030086k0000003CC000MEA37U3UM80zzz10n0000000/VU7zz21UNsM66303rzUDq808A008Ezz0zzsEA307k1zzU1VU1yk023M13X7zw00321UM1b0Tzy0s7086w0EVUM88MkU00sEA30sQ00kkQ0S13z02A4211v44Tzz21UMS0w062606sMy00FUUk8/TzU0k0EA3D03vzzw00kDsH0284411Nzw46221UNU07TzzbzztX2M0F0UU8/1E0skkEA31zz00kETzyA8O0284811MPk3aA21UMM0M0660k61V3k0F0V08/6PkBv0EA33030zzk70kA8Q02A4M11NX20DE21UMM0M7zw0M61V3a0EUW08/sTU3A0EA330300k01UkA8wk268k11y001ks21UMM0M0600061zAq0EH408ATzlw3sTzy1zz0Bk004k7v3k20000307wS07VzzU7zU1w000y000A000000I"
+Text_BMSG_Task.="|<>**50$96.4000800000000000Ds00M010k0000000Ds00s010m0000000M80Tzy10F0000000kM01X01wE001E112zzU11U1UE0228110zzk60s10r02442110kEw0S13w02442110kEU0l3Xk0284411zzw00kDsH00844111kszzzA8G00840110kE40kA8G00848110kk60kA8Q0084811zzk30kA8A00A4E110k030kA8Qk244E110k010kA8wk268U110k000k6tak200U10AU007k023U0000027U007U0000000000U"
+Text_BWSG_BM:="|<>**40$63.600M0380MA0E0600A06300rVUT0k30k445TyC300A0kVc00EA0300492260m0E00XsTlU304008T6480A00012ElV00k000807wM0300003UU300AU00MS5Uk00k0036kaC003000EoARs00A0027Vz3000k00k000800300s1VT3000A000w9EE000k00BXC60003001ANVU000A0A93480000k1V8M3000030w93UE0000A1XMQ600000kAP7UM03U0312Es1k0zU0AsG6000A600k2EX0E30Hs30m0wC0MCnUQ4kQn063w62XYC3k1U0085sz000MDw38000006731m000001UskMU00000MVw68000006CD1U0U0001blkM000000NmA60080000sO3U000000Q30k00000003kQT0000000kDy4000000Q20000000070k42000003UA0UU00001lV048000001w80V000001tV048000000A80V000000130080000008S10000000120000000008E00000000160000U"
+Text_BWSG_BM.="|<>**50$56.0z0US1k1UE82s4s400+22Xz30U040V800E60208G7wQ0U0007V24040012skV00U07k4DsE04000030A00U0T3kw200400Eg9VU00U08O2Ns004027Vz3000U0V00000041M2584000U03V+3000403sHVU000U0YAkE00044934A0000X2Ek200007kYA1U0000493Uk000026ksC00000V8Q0k0T008G70604S004V00U30W0181UM1UtgUm1oA0kTlsN1ka0M002QFk0047y007k007330k00001VVUs00000kAk800000sVs600000QwA300000AN63000000QE1U00000s70k0000003Usk000007UsFU000010M0000001U00000001kC80U0001U208000001kU2000003Y80V000003200E00000VU04000008RM08"
+
+
+
 
 TaskListInterval := 10 * 1000    ; 任务列表检测间隔：10WheelDown
 
@@ -79,6 +91,7 @@ cbPP := myGui.Add("Checkbox", "", "启用：自动点击匹配 (PP)")
 cbKSTZ := myGui.Add("Checkbox", "", "启用：自动巅峰对决 (KSTZ)")
 cbTaskList := myGui.Add("Checkbox", "", "启用：自动点击任务列表 (TaskList)")
 cbTaskList.OnEvent("Click", (*) => TaskListLoop())
+cbValley := myGui.Add("Checkbox", "", "启用：自动报名山谷 (12:00-12:45)")
 
 myGui.Add("Button", "w200", "手动排列窗口").OnEvent("Click", (*) => ArrangeWindows())
 
@@ -226,7 +239,7 @@ TrySearchAndClick(hwnd)
         else if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, Text_DFDJ_TZ, 1, 0.85))
         {
             ; 找到所有匹配，点击Y轴最大的那个（最下方的）
-            maxY := -99999
+            maxY := -4096
             targetX := 0
             targetY := 0
             for result in ok {
@@ -263,11 +276,15 @@ TrySearchAndClick(hwnd)
 ;==========================
 CheckTaskList(hwnd)
 {
-    global TargetText_TaskList, SearchRange, cbTaskList
+    global TargetText_TaskList, SearchRange, cbTaskList, cbValley
+    global Text_BMSG_Task, Text_BWSG_BM, Text_MRBZ, MainPage_BeiBao
     ;标识是否有任务正在执行中
     global HasTaskExecuting := false
 
-    if (!cbTaskList.Value)
+    isValleyTime := (A_Hour == 12 && A_Min >= 0 && A_Min <= 45)
+
+    ; 如果任务列表和山谷报名都未启用（或不在时间范围内），则退出
+    if (!cbTaskList.Value && !(cbValley.Value && isValleyTime))
         return
 
     ; 绑定窗口用于截图（模式4最稳定）
@@ -279,7 +296,6 @@ CheckTaskList(hwnd)
     y1 := 0 - SearchRange
     x2 := 0 + SearchRange
     y2 := 0 + SearchRange
-    ;连续查找三次，找到停止
         ;如果当前有任务在执行，则不进行任务列表检测和点击
         if(HasTaskExecuting) {
              ToolTip("窗口 " hwnd "有任务正在执行中", 20, 20)
@@ -293,19 +309,33 @@ CheckTaskList(hwnd)
              ; 在窗口坐标内点击任务列表
                 ToolTip("窗口 " hwnd " 任务列表已点击 (" X "," Y ")", 20, 20)
                 FindText().Click(X, Y, "L")
+                Sleep 500
             }
 
         }
         ;判断是否处于任务列表界面
-        if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, Text_MRBZ, 1, 0.85))
+        if (cbTaskList.Value && ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, Text_MRBZ, 1, 0.85))
         {
             ; 在窗口坐标内点击每日必做
             ToolTip("窗口 " hwnd " 每日必做已点击 (" X "," Y ")", 20, 20)
             FindText().Click(X, Y, "L")
-            MouseMove X, Y -200  
-            Sleep 100
-            Send "{WheelDown 5}"  ; 向下滚动5格
-            Sleep 500
+        }
+
+        ; 山谷报名逻辑
+        if (cbValley.Value && isValleyTime)
+        {
+            if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, Text_BMSG_Task, 1, 0.80))
+            {
+                ToolTip("窗口 " hwnd " 点击山谷任务", 20, 20)
+                FindText().Click(X, Y, "L")
+                Sleep 500
+            }
+            if (ok := FindText(&X, &Y, x1, y1, x2, y2, 0.1, 0.5, Text_BWSG_BM, 1, 0.80))
+            {
+                ToolTip("窗口 " hwnd " 点击山谷报名", 20, 20)
+                FindText().Click(X, Y, "L")
+                Sleep 500
+            }
         }
        
     FindText().BindWindow(0)  ; 解绑定
